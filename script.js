@@ -4,7 +4,8 @@ const newPlayerFormContainer = document.getElementById('new-player-form');
 // Add your cohort name to the cohortName variable below, replacing the 'COHORT-NAME' placeholder
 const cohortName = '2302-ACC-ET-WEB-PT-D';
 // Use the APIURL variable for fetch requests
-const APIURL = `https://fsa-puppy-bowl.herokuapp.com/api/${cohortName}/`;
+const players_API_URL = `https://fsa-puppy-bowl.herokuapp.com/api/${cohortName}/players`
+const playerId_API_URL = `https://fsa-puppy-bowl.herokuapp.com/api/${cohortName}/players/PLAYER-ID`
 
 /**
  * It fetches all players from the API and returns them
@@ -12,6 +13,9 @@ const APIURL = `https://fsa-puppy-bowl.herokuapp.com/api/${cohortName}/`;
  */
 const fetchAllPlayers = async () => {
     try {
+        const response = await fetch(players_API_URL)
+        const players = await response.json()
+        return players
 
     } catch (err) {
         console.error('Uh oh, trouble fetching players!', err);
@@ -20,6 +24,9 @@ const fetchAllPlayers = async () => {
 
 const fetchSinglePlayer = async (playerId) => {
     try {
+        const response = await fetch(playerId_API_URL)
+        const player = await response.json()
+        return player
 
     } catch (err) {
         console.error(`Oh no, trouble fetching player #${playerId}!`, err);
