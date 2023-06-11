@@ -1,5 +1,7 @@
+if (typeof document !== 'undefined') {
 const playerContainer = document.getElementById('all-players-container');
 const newPlayerFormContainer = document.getElementById('new-player-form');
+}
 
 // Add your cohort name to the cohortName variable below, replacing the 'COHORT-NAME' placeholder
 const cohortName = '2302-ACC-ET-WEB-PT-D';
@@ -67,8 +69,8 @@ const removePlayer = async (playerId) => {
  * the API to remove a player from the roster. 
  * 
  * The `fetchSinglePlayer` and `removePlayer` functions are defined in the
- * @param playerList - an array of player objects
- * @returns the playerContainerHTML variable.
+ * param playerList - an array of player objects
+ * returns the playerContainerHTML variable.
  */
 const renderAllPlayers = (playerList) => {
     try {
