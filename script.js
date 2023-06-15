@@ -16,10 +16,8 @@ const APIURL = `https://fsa-puppy-bowl.herokuapp.com/api/${cohortName}/players`
 const fetchAllPlayers = async () => {
     try {
       const response = await fetch(APIURL);
-      if (!response.ok) {
-        throw new Error('Failed to fetch players');
-      }
       const data = await response.json();
+      console.log(data)
       return data;
     } catch (err) {
       console.error('Uh oh, trouble fetching players!', err);
@@ -103,19 +101,18 @@ const fetchAllPlayers = async () => {
  * param playerList - an array of player objects
  * returns the playerContainerHTML variable.
  */
-const renderAllPlayers = async (playerList) => {
+const renderAllPlayers = async (players) => {
     try {
       let playerContainerHTML = '';
   
-      // Check if playerList is an array
-      if (Array.isArray(playerList)) {
+      
         // Loop through each player in the playerList
-        playerList.forEach((player) => {
+        players.forEach((player) => {
           // Create HTML string for the player card
           const playerCardHTML = `
             <div class="player-card">
               <h3>${player.name}</h3>
-              <p>Position: ${player.position}</p>
+              <p>breed: ${player.breed}</p>
               <p>Number: ${player.number}</p>
               <button class="details-button" data-player-id="${player.id}">See details</button>
               <button class="remove-button" data-player-id="${player.id}">Remove from roster</button>
@@ -125,9 +122,7 @@ const renderAllPlayers = async (playerList) => {
           // Append the player card HTML to the playerContainerHTML
           playerContainerHTML += playerCardHTML;
         });
-      } else {
-        throw new Error('Player list is not an array');
-      }
+      
   
       // Add the playerContainerHTML to the DOM
       playerContainer.innerHTML = playerContainerHTML;
@@ -156,10 +151,10 @@ const renderAllPlayers = async (playerList) => {
   
 
 
-/**
- * It renders a form to the DOM, and when the form is submitted, it adds a new player to the database,
- * fetches all players from the database, and renders them to the DOM.
- */
+// /**
+//  * It renders a form to the DOM, and when the form is submitted, it adds a new player to the database,
+//  * fetches all players from the database, and renders them to the DOM.
+//  */
 const renderNewPlayerForm = () => {
     try {
       const formHTML = `
@@ -207,9 +202,9 @@ const renderNewPlayerForm = () => {
 
 const init = async () => {
     const players = await fetchAllPlayers();
-    renderAllPlayers(players);
+    // renderAllPlayers(players);
 
-    renderNewPlayerForm();
+    // renderNewPlayerForm();
 }
 
 init();

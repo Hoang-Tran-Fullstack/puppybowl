@@ -3,3 +3,103 @@
   margin: 0;
   box-sizing: border-box;
 }
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Player card styles */
+.player-card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.player-card h3 {
+  margin: 0;
+}
+
+.player-card p {
+  margin: 10px 0;
+}
+
+.player-card button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* Form styles */
+form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+form input[type="text"],
+form input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+#all-players-container {
+  display: inline-block;
+  width: 50%;
+  vertical-align: top;
+}
+
+#new-player-form {
+  display: inline-block;
+  width: 40%;
+  margin-left: 20px;
+  vertical-align: top;
+}
+
+#new-player-form h3{
+  text-align: center;
+}
