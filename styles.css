@@ -27,6 +27,9 @@ h1 {
   padding: 20px;
   margin-bottom: 20px;
   background-color: rgb(181, 179, 177);
+  width: 90%;
+  
+  
 }
 
 .player-card h3 {
@@ -104,4 +107,8 @@ form button[type="submit"] {
 
 #new-player-form h3{
   text-align: center;
+}
+
+.player-card img {
+  width: 100%;
 }
