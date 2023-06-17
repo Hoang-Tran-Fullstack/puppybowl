@@ -105,7 +105,11 @@ const renderAllPlayers = async (playerList) => {
           <div class="player-card">
             <h3>${player.name}</h3>
             <p>${player.breed}</p>
-            <p>${player.img}</p>
+            <p>${player.status}</p>
+            <p>${player.createdAt}</p>
+            <p>${player.updatedAt}</p>
+            <p>${player.teamId}</p>
+            <img src:${player.imageUrl}></img>
             <button class="details-btn" data-player-id="${player.id}">See details</button>
             <button class="remove-btn" data-player-id="${player.id}">Remove from roster</button>
           </div>
@@ -120,16 +124,19 @@ const renderAllPlayers = async (playerList) => {
       const removeButtons = document.querySelectorAll('.remove-btn');
   
       detailsButtons.forEach((button) => {
-        button.addEventListener('click', () => {
+        button.addEventListener('click', async () => {
           const playerId = button.getAttribute('data-player-id');
-          fetchSinglePlayer(playerId);
+          await fetchSinglePlayer(playerId);
         });
       });
   
       removeButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-          const playerId = button.getAttribute('data-player-id');
-          removePlayer(playerId);
+        button.addEventListener('click', async (event) => {
+          const playerId = event.target.dataset.id('data-player-id');
+          const deleted = await removePlayer(playerId)
+          if (deleted) {
+            playerHTML.remove()
+          }
         });
       });
     } catch (err) {
